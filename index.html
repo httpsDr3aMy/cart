@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <title>Sklep internetowy</title>
+    <meta name="description" content="Sklep internetowy">
+    <meta name="keywords" content="Sklep internetowy, Sklep">
+    <meta name="author" content="Sklep internetowy - Kamil Ptak">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:ital@1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/5d9b5795c5.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+</head>
+<body>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p>Brak funkcjonalności</p>
+        </div>
+    </div>
+    <nav class="nav-main">
+        <div class="businnes-name-box">
+            <img src="img/logo.png" alt="logo" class="logo">
+            <h1 class="businnes-name">CLATING</h1>
+        </div>
+        <div class="searchbox">
+            <input type="search" name="search" id="search" placeholder="Szukaj...">
+            <button type="submit" id="search-btn" onclick="openModal()">Wyszukaj</button>
+        </div>
+
+        <div class="box-icons">
+            <i class="fa-solid fa-magnifying-glass fa-xl" id="search-icon"></i>
+            <div class="cart" data-count="1">
+                <i class="fa-solid fa-cart-shopping fa-xl"></i>
+            </div>
+            <button onclick="openModal()" class="btn-burger">
+                <div class="burger">
+                    <div class="burger-line"></div>
+                    <div class="burger-line"></div>
+                    <div class="burger-line"></div>
+                </div>
+            </button>
+        </div>
+        <nav class="menu">
+            <div class="hidden-box">
+                <p class="title-cart">Koszyk</p>
+                <div class="menu-box">
+                    <img src="img/komputer.jpg" alt="item from shop" style="width: 100px; height: 100px;">
+                    <div class="box-text-menu">
+                        <p class="name-of-product">Lorem ipsum</p>
+                        <p>Ilość: <span class="quantityOutput"></span></p>
+                    </div>
+                    <button class="bin-btn" id="bin-btn-menu" onclick="deleteElement('.main--after-delete, .hidden-box')">
+                        <i class="far fa-2x fa-times-circle"></i>
+                    </button>
+                </div>
+                <div class="price-box">
+                    <p class="delivery">Wysyłka: <span class="delivery-cost"></span></p>
+                    <p class="total-price">Razem: <span class="last-price"></span></p>
+                </div>
+                <button class="finalize-the-order">REALIZUJ ZAMÓWIENIE</button>
+            </div>
+        </nav>
+    </nav>
+    <nav class="bottom-nav">
+        <div class="bottom-nav-searchbox">
+            <div class="searchbox">
+                <input type="search" name="search" id="search" placeholder="Szukaj...">
+                <button type="submit" id="search-btn" onclick="openModal()">Wyszukaj</button>
+            </div>
+        </div>
+    </nav>
+    <main>
+            <header class="summary-box">
+                <h2>PODSUMOWANIE ZAKUPÓW</h2>
+                <p style="color: blue;">Liczba elementów w koszyku - <span class="counter">1</span></p>
+            </header>
+
+        <div class="main--after-delete">
+            <table class="summary-table">
+                <tr>
+                    <th>Produkty</th>
+                    <th>Opis</th>
+                    <th>Data wysyłki</th>
+                    <th>Cena jednostkowa</th>
+                    <th>Ilość</th>
+                    <th></th>
+                    <th>Razem</th>
+                </tr>
+                <tr class="item-row-table">
+                    <td>
+                        <img src="img/komputer.jpg" alt="item from shop - table" style="width: 100px; height: 100px;">
+                    </td>
+                    <td>
+                        <p>Lorem ipsum dolor sit em</p>
+                        <p class="catalog-number">Numer katalogowy: 12345</p>
+                    </td>
+                    <td>
+                        <p style="color: green;"><span class="delivery-day"></span>,<br><span class="delivery-date"></span><br></p>
+                    </td>
+                    <td>20.00 €</td>
+                    <td>
+                        <input type="number" id="quantity1" min="1" value="1">
+                    </td>
+                    <td>
+                        <button class="bin-btn" id="bin-btn" onclick="deleteElement('.main--after-delete')">
+                            <i class="far fa-2x fa-times-circle"></i>
+                        </button>
+                    </td>
+                    <td>20.00 €</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" colspan="2">
+                        <p>Bony rabatowe</p>
+                        <div class="btns--flexbox">
+                            <input type="text" name="" id="">
+                            <button onclick="openModal()" class="yes">TAK</button>
+                        </div>
+                    </td>
+                    <td colspan="3">Suma cen produktów: </td>
+                    <td></td>
+                    <td class="price"></td>
+                </tr>
+                <tr>
+                    <td colspan="3">Dostawa:</td>
+                    <td></td>
+                    <td class="delivery-cost">0 €</td>
+                </tr>
+                <tr>
+                    <td colspan="3">Razem: </td>
+                    <td></td>
+                    <td class="last-price"></td>
+                </tr>
+
+            </table>
+            <div class="product-table">
+                <div class="product-row">
+                    <div class="product-column product-info">
+                        <div class="product-item">
+                            <img src="img/komputer.jpg" alt="item from shop - table" style="width: 100px; height: 100px;">
+                            <div class="product-description">
+                                <p>Lorem ipsum dolor sit em</p>
+                                <p class="product-catalog-number">Numer katalogowy: 12345</p>
+                            </div>
+                            <div class="product-quantity">
+                                <label>Ilość:</label>
+                                <input type="number" id="quantity2" min="1" value="1">
+                            </div>
+                            <div class="product-delete">
+                                <button class="product-delete-btn" onclick="deleteElement('.main--after-delete')">
+                                    <i class="far fa-2x fa-times-circle"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-column product-delivery">
+
+                    </div>
+                    <div class="product-column product-price">
+                        <div class="product-price-info">
+                            <p>Cena jednostkowa: 20.00 €</p>
+                        </div>
+                    </div>
+                    <div class="product-column product-total-price">
+                        <div class="product-total-price-info">
+                        </div>
+                    </div>
+                </div>
+                <div class="product-row">
+                    <div class="product-column product-discount">
+                        <div class="product-discount-info">
+                            <p>Bony rabatowe:</p>
+                            <div class="product-discount-btns--flexbox">
+                                <input type="text" name="" id="">
+                                <button onclick="openModal()">TAK</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-column product-delivery-cost">
+                        <div class="product-delivery-cost-info">
+                            <p>Dostawa:</p>
+                        </div>
+                    </div>
+                    <div class="product-column product-last-price">
+                        <div class="product-last-price-info">
+                            <p>Razem:</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-row">
+                    <div class="product-column product-delivery-cost-value">
+                        <div class="row-media-phone">
+                            <p>Suma cen produktów: </p>
+                            <div class="price"></div>
+                        </div>
+                    </div>
+                    <div class="product-column product-price-value">
+
+                        <div class="row-media-phone">
+                            <p>Dostawa: </p>
+                            <div class="delivery-cost">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-column product-last-price-value">
+
+                        <div class="product-column product-delivery-cost-value">
+                            <div class="row-media-phone">
+                                <p>Razem:</p>
+                                <div class="last-price">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section class="summary-delivery-info">
+                <h3 >Przewidywana data wysyłki zamówienia: <span class="delivery-day" style="color: green;"></span> <span class="delivery-date" style="color: green;"></span>.</h3>
+
+            </section>
+        </div>
+        <section class="recommend-box">
+            <h3>Polecamy</h3>
+            <div class="boxes--flexbox">
+                <div class="box">
+                    <figure>
+                        <img src="img/myszka.jpg" alt="item from shop" style="width: 100px; height: 100px;">
+                        <figcaption>Dummy content</figcaption>
+                        <p class="price-box-text">20.00 €</p>
+                    </figure>
+                </div>
+                <div class="box">
+                    <figure>
+                        <img src="img/ram.jpg" alt="item from shop" style="width: 100px; height: 100px;">
+                        <figcaption>Dummy content</figcaption>
+                        <p class="price-box-text">20.00 €</p>
+                    </figure>
+                </div>
+                <div class="box">
+                    <figure>
+                        <img src="img/klawiatura.png" alt="item from shop" style="width: 100px; height: 100px;">
+                        <figcaption>Dummy content</figcaption>
+                        <p class="price-box-text">20.00 €</p>
+                    </figure>
+                </div>
+            </div>
+            <button onclick="openModal()" class="continue-buying-btn-saving">KONTYNUUJ ZAKUPY</button>
+        </section>
+        <div class="main--after-delete">
+            <header class="info-header">
+                <h2><span class="number">1</span> KONTO</h2>
+            </header>
+            <section class="account-info">
+                <h4>MASZ JUŻ KONTO W NASZYM SKLEPIE?</h4>
+                <a href="#" class="login-text">» Kliknij tutaj i zaloguj się</a>
+            </section>
+            <section class="account-info">
+                <h4 id="flex-title--acount-box">TO TWOJE PIERWSZE ZAMÓWIENIE?</h4>
+                <div class="hidden-box--acount-info">
+                    <div class="account-info--flexbox">
+                        <section class="box--account-info">
+                            <p>
+                                <span class="header-text--account-info">Szybkie zakupy bez rejestracji</span>
+
+                                - Najszybszy sposób na złożenie zamówienia<br>
+                                - Podajesz tylko niezbędne dane adresowe<br>
+                                - Dostępne wszystkie opcje dostawy i płatności<br>
+                            </p>
+                            <button class="btn--account-info" id="btn-no-account">ZAKUPY BEZ REJESTRACJI</button>
+                        </section>
+                        <section class="box--account-info">
+                            <p>
+                                <span class="header-text--account-info">Utwórz konto dzisiaj i ciesz się z korzyści:</span>
+
+                                - Bezpieczny i spersonalizowany dostęp<br>
+                                - Szybkie i łatwe zakupy<br>
+                                - Osobne adresy rozliczeń i wysyłki<br>
+                            </p>
+                            <button onclick="openModal()" class="btn--account-info">STWÓRZ KONTO</button>
+                        </section>
+                    </div>
+                </div>
+                <section class="form-no-account">
+                    <div class="column-form">
+                        <label for="mail">Adres e-mail <span class="orange-text">*</span></label>
+                        <input type="text" name="mail" id="mail">
+                        <label for="name">Imię <span class="orange-text">*</span></label>
+                        <input type="text" name="name" id="name">
+                        <label for="surname">Nazwisko <span class="orange-text">*</span></label>
+                        <input type="text" name="surname" id="surname">
+                    </div>
+                    <input type="checkbox" name="subscribe-newsletter" id="subscribe-newsletter">
+                    <label for="subscribe-newsletter">Zapisz się do naszego newslettera</label>
+                    <br>
+                    <input type="checkbox" name="agreement" id="agreement">
+                    <label for="agreement">Oświadczam, iż zapoznałem się z Regulaminem i Polityką Prywatności Sklepu internetowego oraz akceptuję ich postanowienia. *</label>
+                    <span class="orange-text" style="display: block;">* Pole wymagane</span>
+                    <h4 class="address-delivery-title">ADRES DOSTAWY</h4>
+                    <div class="column-form">
+                        <label for="name-delivery">Imię <span class="orange-text">*</span></label>
+                        <input type="text" name="name" id="name-delivery">
+                        <label for="surname-delivery">Nazwisko <span class="orange-text">*</span></label>
+                        <input type="text" name="surname-delivery" id="surname-delivery">
+                        <label for="business-delivery">Firma</label>
+                        <input type="text" name="business-delivery" id="business-delivery">
+                        <label for="street-and-house-number">Ulica i numer domu <span class="orange-text">*</span></label>
+                        <input type="text" name="street-and-house-number" id="street-and-house-number">
+                        <label for="zip-code-delivery">Kod pocztowy <span class="orange-text">*</span></label>
+                        <input type="text" name="zip-code-delivery" id="zip-code-delivery">
+                        <label for="city-delivery">Miasto <span class="orange-text">*</span></label>
+                        <input type="text" name="city-delivery" id="city-delivery">
+                        <p>Kraj *</p>
+                        <select>
+                            <option value="Chiny">Chiny</option>
+                            <option value="Stany Zjednoczone">Stany Zjednoczone</option>
+                            <option value="Rosja">Rosja</option>
+                            <option value="Indie">Indie</option>
+                            <option value="Japonia">Japonia</option>
+                            <option value="Niemcy">Niemcy</option>
+                            <option value="Wielka Brytania">Wielka Brytania</option>
+                            <option value="Francja">Francja</option>
+                            <option value="Kanada">Kanada</option>
+                            <option value="Włochy">Włochy</option>
+                            <option value="Polska" selected>Polska</option>
+                        </select>
+
+                        <label for="phone-delivery">Telefon komórkowy <span class="orange-text">*</span></label>
+                        <input type="text" name="phone-delivery" id="phone-delivery">
+                        <div class="--flexbox-inline">
+                            <input type="checkbox" name="billing-address" id="billing-address">
+                            <label for="billing-address">Proszę użyć adresu rozliczeniowego</label>
+                        </div>
+                    </div>
+                    <div class="billing-address-form" style="display: none;">
+                        <h4 class="billing-address-title">ADRES ROZLICZENIOWY</h4>
+                        <label for="name-delivery-billing-address">Imię <span class="orange-text">*</span></label>
+                        <input type="text" name="name" id="name-delivery-billing-address">
+                        <label for="surname-delivery-billing-address">Nazwisko <span class="orange-text">*</span></label>
+                        <input type="text" name="surname-delivery" id="surname-delivery-billing-address">
+                        <label for="business-delivery-billing-address">Firma</label>
+                        <input type="text" name="business-delivery" id="business-delivery-billing-address">
+                        <label for="street-and-house-number-billing-address">Ulica i numer domu <span class="orange-text">*</span></label>
+                        <input type="text" name="street-and-house-number" id="street-and-house-number-billing-address">
+                        <label for="zip-code-delivery-billing-address">Kod pocztowy <span class="orange-text">*</span></label>
+                        <input type="text" name="zip-code-delivery" id="zip-code-delivery-billing-address">
+                        <label for="city-delivery-billing-address">Miasto <span class="orange-text">*</span></label>
+                        <input type="text" name="city-delivery" id="city-delivery-billing-address">
+                        <p>Kraj <span class="orange-text">*</span></p>
+                        <select>
+                            <option value="Chiny">Chiny</option>
+                            <option value="Stany Zjednoczone">Stany Zjednoczone</option>
+                            <option value="Rosja">Rosja</option>
+                            <option value="Indie">Indie</option>
+                            <option value="Japonia">Japonia</option>
+                            <option value="Niemcy">Niemcy</option>
+                            <option value="Wielka Brytania">Wielka Brytania</option>
+                            <option value="Francja">Francja</option>
+                            <option value="Kanada">Kanada</option>
+                            <option value="Włochy">Włochy</option>
+                            <option value="Polska" selected>Polska</option>
+                        </select>
+
+                        <label for="phone-delivery-billing-address">Telefon komórkowy <span class="orange-text">*</span></label>
+                        <input type="text" name="phone-delivery" id="phone-delivery-billing-address">
+                    </div>
+                    <div class="line-form-no-account"></div>
+                    <div class="form-no-account-bottom">
+                        <button type="submit" onclick="openModal()" id="save-form">ZAPISZ</button>
+                        <span class="orange-text">* Pole wymagane</span>
+                    </div>
+                </section>
+            </section>
+            <header class="info-header">
+                <h2><span class="number">2</span>METODY DOSTAWY</h2>
+            </header>
+            <section class="box--delivery-options">
+                <h4 class="delivery-options-title">Opcje dostawy</h4>
+                <form action="*" method="post">
+                    <table style="border: 1px solid;">
+                        <tr>
+                            <td><input type="radio" name="delivery-option" id="inpost-parcel-locker" value="5" checked></td>
+                            <td><img src="img/inpost.png" alt="inpost logo"></td>
+                            <td>
+                                <h6>InPost Paczkomaty 24/7</h6>
+                                Czas dostawy: 1 dzień roboczy. Przesyłka do odbioru w Paczkomacie.</td>
+                            <td>5,00 €</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="delivery-option" id="pocztex-courier" value="6"></td>
+                            <td><img src="img/pocztex kurier.png" alt="pocztex logo"></td>
+                            <td>
+                                <h6>Pocztex Kurier</h6>
+                                Czas dostawy: 1-2 dni robocze. Poczta Polska. Wysyłka gratis zamówień powyżej 149zł</td>
+                            <td>6,00 €</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="delivery-option" id="pocztex-locally" value="6"></td>
+                            <td><img src="img/pocztex punkt.png" alt="pocztex logo"></td>
+                            <td>
+                                <h6>Pocztex Punkt - Odbiór w Punkcie</h6>
+                                Czas dostawy: 1-2 dni robocze. Przesyłka do odbioru urzędzie pocztowym lub na stacji Orlen, sklepach Żabka, Biedronka i innych. Wysyłka gratis zamówień powyżej 149zł</td>
+                            <td>6,00 €</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="delivery-option" id="inpost-courier" value="8"></td>
+                            <td><img src="img/inpost kurier.png" alt="inpost logo"></td>
+                            <td>
+                                <h6>Przesyłka kurierska Inpost</h6>
+                                Czas dostawy: Następny dzień roboczy. Wysyłka gratis zamówień powyżej 149zł.</td>
+                            <td>8,00 €</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="delivery-option" id="ups-courier" value="8"></td>
+                            <td><img src="img/ups.png" alt="ups logo"></td>
+                            <td>
+                                <h6>Przesyłka kurierska UPS</h6>
+                                Czas dostawy: Następny dzień roboczy. Wysyłka gratis zamówień powyżej 149zł</td>
+                            <td>8,00 €</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="delivery-option" id="add-to-previous-order" value="0"></td>
+                            <td><img src="img/add%20to%20last%20order.png" alt="locally icon"></td>
+                            <td>
+                                <h6>Dodaj do poprzedniego zamówienia</h6>
+                                Czas dostawy: Wyślemy razem z wcześniej złożonym zamówieniem</td>
+                            <td>ZA DARMO!</td>
+                        </tr>
+                    </table>
+                </form>
+                <p class="carrier-tite">Zostaw wiadomość</p>
+                <p>Dodaj komentarz do swojego zamówienia:</p>
+                <textarea name="message" id="message" cols="120" rows="2"></textarea>
+                <div class="accept-the-rules-box">
+                    <input type="checkbox" name="accept" id="accept">
+                    <label for="accept">
+                        Oświadczam, że zapoznałem/am się z Regulaminem Sklepu internetowego i akceptuję jego postanowienia.
+                        Wyrażam zgodę na przetwarzanie przez Fikcyjna Sp. z o.o., ul. Przykładowa 1, 00-000 Warszawa,
+                        NIP: 123-45-67-890, REGON: 012345678, KRS: 0000123456,
+                        moich danych osobowych w celach związanych z korzystaniem ze Sklepu internetowego www.fikcyjny-sklep.pl,
+                        zgodnie z zasadami określonymi w Polityce Prywatności.
+                    </label>
+                </div>
+                <button class="continue-buying-btn-saving" onclick="openModal()" >Zapisz</button>
+            </section>
+            <header class="info-header">
+                <h2><span class="number">3</span>WYBIERZ METODĘ PŁATNOŚCI</h2>
+            </header>
+            <a href="#">Jesteś niezalogowany! Jeżeli chcesz zrobić zakupy bez rejestracji
+                to kliknij tutaj i uzupełnij dane adresowe... Możesz też zarejestrować się w naszym sklepie i
+                wygodnie składać zamówienia :)</a>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="img/logo.png" alt="logo" class="logo">
+                    <p>Nasz sklep internetowy oferuje szeroki wybór sprzętu elektronicznego. Zapewniamy wysoką jakość produktów oraz profesjonalną obsługę klienta.</p>
+                    <ul class="social-media">
+                        <li><a href="#"><i class="fab fa-facebook" id="facebook"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter" id="twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram" id="instagram"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h3>Dane adresowe</h3>
+                    <p>ul. Przykładowa 1</p>
+                    <p>00-000 Warszawa</p>
+                    <p>Telefon: 123-456-789</p>
+                    <p>E-mail: kontakt@sklepelektroniczny.pl</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Informacje o dostawach</h3>
+                    <table>
+                        <tr>
+                            <th>Rodzaj wysyłki</th>
+                            <th>Koszt wysyłki</th>
+                            <th>Darmowa wysyłka od</th>
+                            <th>Czas dostawy</th>
+                        </tr>
+                        <tr>
+                            <td>Paczkomaty Inpost</td>
+                            <td>12 zł</td>
+                            <td>149 zł</td>
+                            <td>24h</td>
+                        </tr>
+                        <tr>
+                            <td>Kurier Inpost</td>
+                            <td>13 zł</td>
+                            <td>249 zł</td>
+                            <td>24h</td>
+                        </tr>
+                        <tr>
+                            <td>Kurier Pocztex</td>
+                            <td>13 zł</td>
+                            <td>249 zł</td>
+                            <td>24h</td>
+                        </tr>
+                        <tr>
+                            <td>Kurier UPS</td>
+                            <td>16 zł</td>
+                            <td>249 zł</td>
+                            <td>24h</td>
+                        </tr>
+                    </table>
+                    <p><strong>Brak dopłat bez względu na rodzaj płatności!</strong></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
